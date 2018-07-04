@@ -304,21 +304,21 @@ function make_listEnterprises(display1,display2,display3,display4){
 }
 
 
-function show_empresas(empresa,i,classificacao, classificacao_VO){
+function show_empresas(empresa,imagem,i,classificacao, classificacao_VO){
     return `<div id="empresa" class="row empresa">
     <h5 class="header">Empresa ${i}</h5>
   <div class="card horizontal">
     <div class="row">
         <div class="col m6 card-image">
-            <img src="" />Imagem
+            <img src="${imagem}" />
         </div>
         <div class="col m6">
-            <div class="row">
+            <div style="margin-top:80px;" class="row">
                 <h5>${empresa.nome}</h5>
             </div>
             <div class="row">
-             <div class="col m8 offset-m4">
-                <a class="card-action modal-trigger" data-input="${i}" id="E${i}" href="#modal${i}">Ver mais info da empresa</a>
+             <div style="margin-top:60px;" class="col m8 offset-m4">
+                <a class="modal-trigger" data-input="${i}" id="E${i}" href="#modal${i}">Ver mais info da empresa</a>
              </div>    
              </div>  
         </div>
@@ -333,7 +333,7 @@ function show_empresas(empresa,i,classificacao, classificacao_VO){
         <div class="card">
             <div class="row">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="server/db/images/imagem1.jpg">
+                    <img class="activator" src="${imagem}">
                 </div>
             </div>
             <div class="row">
@@ -404,15 +404,12 @@ function show_partners(festival,empresa,i){
     <h5 class="header">Parceiro ${i}</h5>
   <div class="card horizontal">
     <div class="row">
-        <div class="col m6 card-image">
-            <img src="" />Imagem
-        </div>
-        <div class="col m6">
+        <div class="col m6 offset-m1">
             <div class="row">
                 <h5>${empresa.emailEmpresa}</h5>
             </div>
             <div class="row">
-             <div class="col m8 offset-m4">
+             <div class="col m6 offset-m12">
                 <a class="modal-trigger" data-input="${i}" id="P${i}" href="#modal${i}">Ver mais info da empresa</a>
              </div>    
              </div>  

@@ -122,31 +122,6 @@ function otherFunction(ele) {
     }
 }
 
-function updateTask(id) {
-    var data_file = "http://localhost/evr/update_tarefa.php";
-    var http_request = new XMLHttpRequest();
-    var i = 0;
-    http_request.onreadystatechange = function () {
-
-        if (http_request.readyState == 4) {
-            // TODO Javascript function JSON.parse to parse JSON data
-            console.log(http_request.responseText);
-            console.log(tasks);
-
-            // tasks.forEach( task => {
-            //     if(task.id === id){
-            //         tasks.splice(i,1);
-            //     }
-            //     i++;
-            // })
-            // console.log(tasks);
-        }
-    }
-
-    http_request.open("POST", data_file, true);
-    http_request.send(JSON.stringify({ 'id': id, 'estado': 'completa' }));
-}
-
 function buttonCheck(ele) {
     //console.log(ele);
     console.log(ele.id.substring(ele.id.length - 1));
@@ -376,7 +351,10 @@ $(document).ready(function () {
                     var classificacao_VO = aux1.substring(index+1);                  
                 }
             }
-            document.getElementById("list_empresas").innerHTML += show_empresas(empresa, i, classificacao,classificacao_VO);
+            //console.log(empresa.avatar);
+            
+            var image="data:image/jpeg;base64,"+empresa.avatar;
+            document.getElementById("list_empresas").innerHTML += show_empresas(empresa,image, i, classificacao,classificacao_VO);
             i++;
         });
         $('#loc').click(function () {
@@ -826,9 +804,9 @@ $(document).ready(function () {
                 document.getElementById("list_empresas").innerHTML += '<span>Filtro escolhido:' + filter + '(' + value + ')' + '</span>';
                 if (empresas_filter.length > 0) {
                     empresas_filter.forEach(empresa => {
-                        for(var k=0; k < feedbacks.length; k++){
-                            console.log(JSON.parse(feedbacks[k]).nome);
-                            var aux = JSON.parse(feedbacks[k]).nome;
+                        for(var k=0; k < feedbacks_tarefas.length; k++){
+                            console.log(JSON.parse(feedbacks_tarefas[k]).nome);
+                            var aux = JSON.parse(feedbacks_tarefas[k]).nome;
                             //console.log(aux.indexOf('='));
                             var index=aux.indexOf('=');
                             var nome = aux.substring(0,index);
@@ -837,7 +815,21 @@ $(document).ready(function () {
                                 var classificacao = aux.substring(index+1);                  
                             }
                         }
-                        document.getElementById("list_empresas").innerHTML += show_empresas(empresa, i, classificacao);
+                        for(var k=0; k < feedbacks_VO.length; k++){
+                            console.log(JSON.parse(feedbacks_VO[k]).nome);
+                            var aux1 = JSON.parse(feedbacks_VO[k]).nome;
+                            //console.log(aux.indexOf('='));
+                            var index=aux1.indexOf('=');
+                            var nome = aux1.substring(0,index);
+                            console.log(nome);
+                            if(nome === empresa.nome){
+                                var classificacao_VO = aux1.substring(index+1);                  
+                            }
+                        }
+                        //console.log(empresa.avatar);
+                        
+                        var image="data:image/jpeg;base64,"+empresa.avatar;
+                        document.getElementById("list_empresas").innerHTML += show_empresas(empresa,image, i, classificacao,classificacao_VO);
                         i++;
                     });
                     $('.empresa').click(function () {///resolver problema de descobrir em que empresa carrego,ver exemplo mailchimp

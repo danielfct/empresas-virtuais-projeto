@@ -131,20 +131,26 @@ function make_Message(){
     return `<div id="profile-page-wall-share" class="row">
     <div class="col s12">
        <ul class="tabs tab-profile z-depth-1 light-blue" style="width: 100%;">
-          <li class="tab col s6">
+          <li id="private" class="tab col s6">
               <a class="white-text waves-effect waves-light active">
                   <i class="material-icons">edit</i> 
                   Mensagens privadas
               </a>
           </li>
-          <li class="tab col s6">
+          <li id="public" class="tab col s6">
               <a class="white-text waves-effect waves-light">
                   <i class="material-icons">message</i> 
                   Mensagens públicas
               </a>
           </li>
-          <div class="indicator" style="right: 576px; left: 0px;"></div>
+          <div id="indicator" class="indicator" style="right: 440px; left: 0px;"></div>
        </ul>
+       <p></p>
+       <div class="row">
+       </div>
+       <div id="optionslist" class="collection">
+     </div>
+    <div id="showMessages" class="col m12"></div>
        <!-- UpdateStatus-->
        <div id="UpdateStatus" class="tab-content col s12  grey lighten-4">
           <div class="row">
@@ -152,7 +158,7 @@ function make_Message(){
                 <img src="avatar.jpg" alt="" class="circle responsive-img valign profile-image-post">
              </div>
              <div class="input-field col s10">
-                <textarea id="textarea" row="1" placeholder="Escreva aqui a sua mensagem" class="materialize-textarea"></textarea>
+                <textarea id="textarea" row="1" class="materialize-textarea"></textarea>
                 <label for="textarea" class="">Nova mensagem</label>
              </div>
           </div>
@@ -173,8 +179,41 @@ function make_Message(){
     </div>`;
 }
 
+function list_mensagens_enviadas(conteudo,data){
+    return `<div class="row">    
+    <div class="col s6 offset-s6">          
+        <div class="container1 darker">
+            <img src="avatar.jpg" alt="Avatar" class="right">
+            <p class="right">${conteudo}</p>
+            <span class="time-left">${data}</span>
+        </div>
+    </div>            
+</div>`;
+}
+
+function list_mensagens_recebidas(conteudo,data){
+    return `<div class="row">
+    <div class="col s6">
+        <div class="container1">
+            <img src="avatar.jpg" alt="Avatar">
+            <p>${conteudo}?</p>
+            <span class="time-right">${data}</span>
+        </div>
+    </div>
+</div>`;
+}
+
+
 function show_options(empresa){
     return `<option value="${empresa.nome+' - '+empresa.email}" class="cyan-text">${empresa.nome+' - '+empresa.email}</option>`;
+}
+
+function show_row_1(empresa){
+    return `<option value="${empresa.nome+' - '+empresa.email}" class="cyan-text">${empresa.nome+' - '+empresa.email}</option>`;
+}
+
+function list_options(nome,email){
+    return `<a id=${nome} class="collection-item blue-text op"><span class="new badge blue">1</span><h6>${nome+' - '+email}</h6></a>`;
 }
 
 function make_VOs(){

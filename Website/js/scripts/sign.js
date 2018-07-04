@@ -141,6 +141,7 @@ function get_user(email) {
             response = JSON.parse(http_request.responseText);
             console.log(response[0]);
             localStorage.setItem('User-Logged', JSON.stringify(response[0]));
+            location.href = "Userpage.html";
         }
     }
 
@@ -160,6 +161,7 @@ function get_enterprise(email) {
             response = JSON.parse(http_request.responseText);
             console.log(response[0]);
             localStorage.setItem('User-Logged', JSON.stringify(response[0]));
+            location.href = "Enterprise.html";
         }
     }
 
@@ -182,7 +184,6 @@ function checkUser(email, pass, tipo) {
             if (tipo === 0) {
                 if (response.message === '') {
                     get_user(email);
-                    location.href = "Userpage.html";
                 }
                 else {
                     M.toast({ html: response.message });
@@ -191,7 +192,6 @@ function checkUser(email, pass, tipo) {
             else {
                 if (response.message === '') {
                     get_enterprise(email);
-                    location.href = "Enterprise.html";
                 }
                 else {
                     M.toast({ html: response.message });

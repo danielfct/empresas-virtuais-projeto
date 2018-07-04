@@ -1,4 +1,4 @@
-function make_Profile(nome,email,phone,location,number){
+function make_Profile(imagem,nome,email,phone,location,number,zona){
     return `<div id="profile-page-wall-share">
     <div class="row">                 
       <div class="col s12">
@@ -15,11 +15,11 @@ function make_Profile(nome,email,phone,location,number){
     <p></p>
     <br>
     <div class="row">
-        <div class="col m4 offset-m5" style="height: 150px; width: 150px; border: 1px solid grey">Imagem</div>
+        <div class="col m6 offset-m3" style="height: 200px;"><img style="max-width: 100%; max-height: 100%;" src="${imagem}" /></div>
     </div>   
     <p></p>
     <div class="row">
-        <div class="col m2 offset-m5"><button id="image" class="btn blue lighten-2">Mudar Imagem</button></div>
+        <div class="col m2 offset-m5"><button id="change" class="btn blue lighten-2">Mudar Imagem</button></div>
     </div> 
     <p></p>
     <br>
@@ -48,16 +48,21 @@ function make_Profile(nome,email,phone,location,number){
         </div>
     </div>
     <div class="row">
-        <div class="input-field col m8 offset-m2">
+        <div class="input-field col m6">
             <i class="material-icons prefix">group</i>
             <input id="trab_disp" type="number" value="${number}" class="autocomplete validate">    
             <label for="trab_disp">Nº Trabalhadores Disponíveis</label>                    
+        </div>
+        <div class="input-field col m6">
+            <i class="material-icons prefix">group</i>
+            <input id="trab_disp" type="number" value="${zona}" class="autocomplete validate">    
+            <label for="zona">Zona Operaçao</label>                    
         </div>
     </div>
     <p></p>
     <div class="row">
         <div class="col m2 offset-m5">
-            <button id="register" class="btn blue lighten-2">Editar Perfil</button>
+            <button id="editar" class="btn blue lighten-2">Editar Perfil</button>
         </div>
     </div>
 </div>`;
@@ -115,6 +120,34 @@ function make_Message(){
     </div>`;
 }
 
+function list_options(nome,email){
+    return `<a id=${nome} class="collection-item blue-text op"><span class="new badge blue">1</span><h6>${nome+' - '+email}</h6></a>`;
+}
+
+function list_mensagens_enviadas(conteudo,data){
+    return `<div class="row">    
+    <div class="col s6 offset-s6">          
+        <div class="container1 darker">
+            <img src="avatar.jpg" alt="Avatar" class="right">
+            <p class="right">${conteudo}</p>
+            <span class="time-left">${data}</span>
+        </div>
+    </div>            
+</div>`;
+}
+
+function list_mensagens_recebidas(conteudo,data){
+    return `<div class="row">
+    <div class="col s6">
+        <div class="container1">
+            <img src="avatar.jpg" alt="Avatar">
+            <p>${conteudo}?</p>
+            <span class="time-right">${data}</span>
+        </div>
+    </div>
+</div>`;
+}
+
 function show_row(empresa){
     return `<option value="${empresa.nome+' - '+empresa.email}" class="cyan-text">${empresa.nome+' - '+empresa.email}</option>`;
 }
@@ -127,10 +160,97 @@ function show_task(task,number){
         <span class="ultra-small black-text">${task.dataTempoFim}</span>
       </a>
     </label>
-    <span class="task-cat blue darken-1">${task.tipo}</span><span class="task-cat teal">${task.responsavel}</span>
+    <span class="task-cat blue darken-1">${task.tipo}</span><span class="task-cat teal">${task.responsavel}</span><span class="task-cat grey darken-1">${task.estado}</span>
     <span id="myTasks" class="ultra-small task"><button onclick="buttonCheck(this)" id="option${number}" style="display:none;" class="btn green darken-2 col m5 offset-m7">Marcar Completa</button></span>
    </li>`;
    }
+
+   function show_VOs(number,festival){
+    return `<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+    <input type="checkbox" id="V${number}" onclick="myFunction(this)">
+    <label for="V${number}" style="text-decoration: none;"><span class="task-cat teal">${festival.nome}</span>
+      <a class="secondary-content">
+        <span class="ultra-small black-text">De ${festival.dataInicio}</span><span class="ultra-small black-text"> a ${festival.dataFim}</span>
+      </a>
+    </label>
+    <span id="myVOs" class="ultra-small"><button id="buttonV${number}" style="display:none" class="btn red darken-2 col m3 offset-m8">Apagar</button></span>
+   </li>`;
+}
+
+function make_Convites(){
+    return `<div id="convites1" class="col s12 m12">
+    </div>`;
+}
+
+function list_Convites(convite,i,festival){
+    return `<div id="convite" class="row convite">
+    <h5 class="header">Convite ${i}</h5>
+    <div class="card horizontal">
+      <div class="row">
+          <div class="col m6 offset-m1">
+              <div class="row">
+                  <h6> De <span class="blue-text"> ${convite.emailCliente}</span> para o festival<span class="blue-text"> ${festival.nome}</span></h6>
+              </div>
+              <div class="row">
+               <div class="col m8 offset-m12">
+                  <a class="modal-trigger" data-input="${i}" id="E${i}" href="#modal${i}">Ver mais info do festival</a>
+               </div>    
+               </div>  
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        <div id="modal${i}" class="modal" style="display:none; top:5%; max-height: 90%!important; ">
+        <div class="modal-content ">
+            <div class="row ">
+                <i id='closeModal' class="small col m1 offset-m11 material-icons ">clear</i>
+            </div>
+            <div class="card ">
+                <div class="row ">
+                    <div class="card-image waves-effect waves-block waves-light ">
+                        <img class="activator" src="server/db/images/imagem1.jpg">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="card-content ">
+                        <div class="row ">
+                            <span class="card-title activator grey-text text-darken-4 ">Nome do Festival: ${festival.nome}</span>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <button id="aceitar${i}" class="btn blue darken-2 col m2 offset-m3">Aceitar</button>
+                        <button id="rejeitar${i}" class="btn red darken-2 col m2 offset-m2">Rejeitar</button>
+                    </div>
+                </div>
+                <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4 ">${festival.nome}
+                        <i class="material-icons right ">close</i>
+                    </span>
+                    <p></p>
+                    <br>
+                    <div class="row ">
+                        <ul>
+                        <p></p>
+                            <li>
+                                <span class="black-text ">Localização:${festival.localidade}</span>
+                            </li>
+                            <p></p>
+                            <li>
+                                <span class="black-text ">Data Inicio: ${festival.dataInicio}</span>
+                            </li>
+                            <p></p>
+                            <li>
+                                <span class="black-text ">Data Fim: ${festival.dataFim}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+}
 
 function make_Calendar(){
     return `<div class="container">
@@ -148,105 +268,75 @@ function make_Calendar(){
 }
 
 function make_Opportunities(){
-    return `<div class="col s12 m12">
-    <h5 class="header">VO 1</h5>
+   return `<div id="VOs_aux" class="col s12 m12">
+    </div>`;
+}
+
+function list_Opportunities(festival,i){
+    return `<div id="VO${i}" class="row VO_aux">
+    <h5 class="header">VO ${i}</h5>
     <div class="card horizontal">
       <div class="row">
-        <div class="card-content col-m12">
-            <div class="col m6 card-image">
-                <img src="" />Imagem
-            </div>
-            <div class="col m6">
-                <p>Descrição</p>
-                <a class="card-action modal-trigger" id="VO1" href="#modal1">Link para a pagina da empresa</a>
-            </div>
-        </div>
+          <div class="col m6 offset-m1">
+              <div class="row">
+                  <h5>${festival.nome}</h5>
+              </div>
+              <div class="row">
+               <div class="col m8 offset-m12">
+                  <a class="modal-trigger" data-input="${i}" id="E${i}" href="#modal${i}">Ver mais info do festival</a>
+               </div>    
+               </div>  
+          </div>
       </div>
     </div>
   </div>
-  <div class="col s12 m12">
-      <h5 class="header">VO 2</h5>
-      <div class="card horizontal">
-        <div class="row">
-            <div class="card-content col-m12">
-                <div class="col m6 card-image">
-                    <img src="" />Imagem
-                </div>
-                <div class="col m6">
-                    <p>Descrição</p>
-                    <a class="card-action modal-trigger" id="VO2" href="#modal1">Link para a pagina da empresa</a>
-                </div>
+  </div>
+        <div id="modal${i}" class="modal" style="display:none; top:5%; max-height: 90%!important; ">
+        <div class="modal-content ">
+            <div class="row ">
+                <i id='closeModal' class="small col m1 offset-m11 material-icons ">clear</i>
             </div>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m12">
-        <h5 class="header">VO 3</h5>
-        <div class="card horizontal">
-          <div class="row">
-              <div class="card-content col-m12">
-                <div class="col m6 card-image">
-                    <img src="" />Imagem
+            <div class="card ">
+                <div class="row ">
+                    <div class="card-image waves-effect waves-block waves-light ">
+                        <img class="activator" src="">
+                    </div>
                 </div>
-                <div class="col m6">
-                    <p>Descrição</p>
-                    <a class="card-action modal-trigger" id="VO3" href="#modal1">Link para a pagina da empresa</a>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div id="modal1" class="modal" style="display:none; top:5%; max-height: 90%!important;">
-    <div class="modal-content">
-        <div class="row">
-            <i id='closeModal' class="small col m1 offset-m11 material-icons">clear</i>
-        </div>
-        <div class="card">
-            <div class="row">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="server/db/images/imagem1.jpg">
-                </div>
-            </div>
-            <div class="row">
-                <div class="card-content">
-                    <div class="row">
-                        <span class="card-title activator grey-text text-darken-4">Nome do cliente</span>
+                <div class="row ">
+                    <div class="card-content ">
+                        <div class="row ">
+                            <span class="card-title activator grey-text text-darken-4 ">Nome do Festival: ${festival.nome}</span>
+                        </div>
                     </div>
                     <p></p>
-                    <br>
                     <div class="row">
-                        <button id="button1" class="btn blue darken-2 col m2 offset-m3">Aceitar</button>
-                        <button id="button2" class="btn red darken-2 col m2 offset-m2">Rejeitar</button>
+                        <button id="aceitar${i}" class="btn blue darken-2 col m4 offset-m3">Candidatar-se</button>
+                    </div>
+                </div>
+                <div class="card-reveal ">
+                    <span class="card-title grey-text text-darken-4 ">${festival.nome}
+                        <i class="material-icons right ">close</i>
+                    </span>
+                    <p></p>
+                    <br>
+                    <div class="row ">
+                        <ul>
+                        <p></p>
+                            <li>
+                                <span class="black-text ">Localização:${festival.localidade}</span>
+                            </li>
+                            <p></p>
+                            <li>
+                                <span class="black-text ">Data Inicio: ${festival.dataInicio}</span>
+                            </li>
+                            <p></p>
+                            <li>
+                                <span class="black-text ">Data Fim: ${festival.dataFim}</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Nome do cliente
-                    <i class="material-icons right">close</i>
-                </span>
-                <p></p>
-                <br>
-                <div class="row">
-                    <ul>
-                        <li>
-                            <span class="black-text">Email:</span>
-                        </li>
-                        <p></p>
-                        <li>
-                            <span class="black-text">Telefone:</span>
-                        </li>
-                        <p></p>
-                        <li>
-                            <span class="black-text">Localização:</span>
-                        </li>
-                        <p></p>
-                        <li>
-                            <span class="black-text">Data:</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
-    </div>
-</div>`;
+    </div>`;
 }

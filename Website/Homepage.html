@@ -1,132 +1,331 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-      <title>VBE</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="css/materialize1.0.0.css" type="text/css">
-      <link rel="stylesheet" href="css/style-horizontal.css" type="text/css">
-      <link rel="stylesheet" href="css/perfect-scrollbar.css" type="text/css">
-      <link rel="stylesheet" href="css/style.css" type="text/css">
-   </head>
-   <body data-gr-c-s-loaded="true" class="loaded">
-      <div id="loader-wrapper">
-         <div id="loader"></div>
-         <div class="loader-section section-left"></div>
-         <div class="loader-section section-right"></div>
-      </div>
-      <header id="header" class="page-topbar">
-         <!-- start header nav-->
-         <div class="navbar-fixed">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>VBE</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/materialize1.0.0.css" type="text/css">
+    <link rel="stylesheet" href="css/style-horizontal.css" type="text/css">
+    <link rel="stylesheet" href="css/perfect-scrollbar.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body data-gr-c-s-loaded="true" class="loaded">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
             <nav class="cyan">
-               <div class="nav-wrapper">
-                  <ul class="left">
-                     <li>
-                        <h1 class="logo-wrapper"><a id="logo-container" class="brand-logo color-white">VBE Festival</a></h1>
-                     </li>
-                  </ul>
-                  <ul class="right hide-on-med-and-down">
-                     <li>
-                        <a class="waves-effect waves-block waves-light modal-trigger" href="#modal1"> Entrar </a>
-                     </li>
-                     <li>
-                        <a class="waves-effect waves-block waves-light" href="Profilepage.html"> Registar </a>
-                     </li>
-                     <li>
-                        <a class="waves-effect waves-block waves-light" href="#about"> Sobre </a>
-                     </li>
-                  </ul>
-               </div>
+                <div class="nav-wrapper">
+                    <ul class="left">
+                        <li>
+                            <h1 class="logo-wrapper">
+                                <a id="logo-container" class="brand-logo color-white">VBE Festival</a>
+                            </h1>
+                        </li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a class="waves-effect waves-block waves-light modal-trigger" href="#modal1"> Entrar </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-block waves-light" href="Profilepage.html"> Registar </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-block waves-light" href="#about"> Sobre </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-         </div>
-      </header>
-      <div id="carousel-slider" class="carousel carousel-slider">
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=1"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=2"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=1"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=3"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=4"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=2"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=5"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=6"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=3"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=7"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=8"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=4"></a>
-         <a class="carousel-item"><img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=9"></a>
-      </div>
-      <div class="container">
-         <div class="section">
+        </div>
+    </header>
+    <div id="carousel-slider" class="carousel carousel-slider">
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=1">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=2">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=1">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=3">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=4">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=2">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=5">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=6">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=3">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=7">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=8">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem.php?id=4">
+        </a>
+        <a class="carousel-item">
+            <img class="img-responsive" src="http://localhost/evr/get_imagem_festival.php?id=9">
+        </a>
+    </div>
+    <div class="container">
+        <div class="section">
             <!--   Icon Section   -->
             <div class="row">
-               <div class="col s12 m6">
-                  <div class="icon-block">
-                     <h2 class="center font-color"><i class="material-icons">group</i></h2>
-                     <h5 class="center text-bold">Empresas</h5>
-                     <p class="center light">Inscreva já a sua empresa e comece a colaborar!</p>
-					 <br>
-                     <div class="container center-align"><a href="Profilepage.html" class="waves-effect waves-light btn" id="botaoRegistarEmpresa">Registar</a></div>
-                  </div>
-               </div>
-               <div class="col s12 m6">
-                  <div class="icon-block">
-                     <h2 class="center font-color"><i class="material-icons">person</i></h2>
-                     <h5 class="center text-bold">Clientes</h5>
-                     <p class="center light">Inscreva-se já e comece a colaborar!</p>
-                     <br>
-                     <div class="container center-align"><a href="Profilepage.html" class="waves-effect waves-light btn" id="botaoRegistarCliente">Registar</a></div>
-                  </div>
-               </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center font-color">
+                            <i class="material-icons">group</i>
+                        </h2>
+                        <h5 class="center text-bold">Empresas</h5>
+                        <p class="center light">Inscreva já a sua empresa e comece a colaborar!</p>
+                        <br>
+                        <div class="container center-align">
+                            <a href="Profilepage.html" class="waves-effect waves-light btn" id="botaoRegistarEmpresa">Registar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center font-color">
+                            <i class="material-icons">person</i>
+                        </h2>
+                        <h5 class="center text-bold">Clientes</h5>
+                        <p class="center light">Inscreva-se já e comece a colaborar!</p>
+                        <br>
+                        <div class="container center-align">
+                            <a href="Profilepage.html" class="waves-effect waves-light btn" id="botaoRegistarCliente">Registar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <div class="container">
-         <div class="section">
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
             <div class="row">
-               <div id=about class="col s12 center">
-                  <h3><i class="mdi-content-send brown-text"></i></h3>
-                  <h4>Sobre</h4>
-                  <p class="center-align light">Empresas Virtuais 17/18 - Projeto prático - Plataforma Digital EVCP</p>
-               </div>
+                <div id=about class="col s12 center">
+                    <h3>
+                        <i class="mdi-content-send brown-text"></i>
+                    </h3>
+                    <h4>Sobre</h4>
+                    <p class="center-align light">Empresas Virtuais 17/18 - Projeto prático - Plataforma Digital EVCP</p>
+                </div>
             </div>
-         </div>
-      </div>
-      <div id="modal1" class="modal">
-         <div class="modal-content resize-modal">
-            <h5 class="center">LOGIN</h5>
-            <div class="btn-modal">
-               <button class="btn blue darken-4">ENTRAR COM FACEBOOK</button>
-               <button class="btn red">ENTRAR COM GOOGLE</button>
+        </div>
+    </div>
+    <div id="modal1" class="modal" style="display:none; top:5%; max-height: 90%!important;">
+        <div class="modal-content">
+            <div class="row">
+                <i id='closeModal' class="small col m1 offset-m11 material-icons">clear</i>
             </div>
-            <input placeholder="Email" id="email" type="email" class="validate"> 
-            <p></p>
-            <input placeholder="Password" id="password" type="password" class="validate">
-            <div class="row row-pos">
-               <button class="btn blue">Entrar</button>
+            <div class="card">
+                <div class="modal-content resize-modal">
+                    <h5 class="center">LOGIN</h5>
+                    <p></p>
+                    <br>
+                    <input placeholder="Email" id="emailModal" type="email" class="validate">
+                    <p></p>
+                    <input placeholder="Password" id="passwordModal" type="password" class="validate">
+                    <div class="row row-pos">
+                        <p></p>
+                        <button class="btn blue" id="logIn">Log In</button>
+                        <span>Forgot password?</span>
+                    </div>
+                </div>
             </div>
-            <div class="row row-pos">
-               <span>Precisa de conta?</span>
-               <a href="Profilepage.html"><span class="blue-text">Registe-se aqui.</span></a>
-            </div>
-         </div>
-      </div>
-      <!-- ================================================
+        </div>
+    </div>
+    <!-- ================================================
          Footer
          ================================================ -->
-      <footer class="page-footer">
-         <div class="footer-copyright">
+    <footer class="page-footer">
+        <div class="footer-copyright">
             <div class="container">
-               <span><a class="grey-text text-lighten-4" target="_blank">Empresas Virtuais</a></span>
-               <span class="right"> <a class="grey-text text-lighten-4">FCT @ UNL</a></span>
+                <span>
+                    <a class="grey-text text-lighten-4" target="_blank">Empresas Virtuais</a>
+                </span>
+                <span class="right">
+                    <a class="grey-text text-lighten-4">FCT @ UNL</a>
+                </span>
             </div>
-         </div>
-      </footer>
-      <!-- ================================================
+        </div>
+    </footer>
+    <!-- ================================================
          Scripts
          ================================================ -->
-      <script type="text/javascript" src="js/auxs/jquery3.3.1.js"></script>
-      <script type="text/javascript" src="js/auxs/materialize1.0.0.js"></script>
-      <script type="text/javascript" src="js/scripts/homepage.js"></script>
-   </body>
+    <script type="text/javascript" src="js/auxs/jquery3.3.1.js"></script>
+    <script type="text/javascript" src="js/auxs/materialize1.0.0.js"></script>
+    <script type="text/javascript" src="js/scripts/homepage.js"></script>
+    <script>
+        var empresas = [];
+        var VOs = [];
+
+        get_empresas();
+        get_VOs();
+
+        $('#logIn').click(function () {
+            var email = document.getElementById('emailModal').value;
+            var pass = document.getElementById('passwordModal').value;
+            console.log('email:' + email + ' pass:' + pass);
+            var tipo = 0;
+            empresas.forEach(empresa => {
+                if (empresa.email === email) {
+                    tipo = 1;
+                }
+            })
+            checkUser(email, pass, tipo);
+        })
+
+        function get_VOs() {
+            var data_file = "http://localhost/evr/get_organizacoes_virtuais.php";
+            var http_request = new XMLHttpRequest();
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // TODO Javascript function JSON.parse to parse JSON data
+                    //console.log(http_request.responseText);
+                    response = JSON.parse(http_request.responseText);
+                    console.log(response);
+                    VOs = response;
+                    //get_festival(VOs_aux[0].idFestival);
+                    // response.forEach(element => {
+                    //     console.log(element);
+                    //     document.getElementById("recetores").innerHTML +=  show_row(element);
+                    // });
+                    // M.toast({html: response.message})
+                }
+            }
+            http_request.open("GET", data_file, true);
+            http_request.send();
+        }
+
+        function get_empresas() {
+            var data_file = "http://localhost/evr/get_empresas.php";
+            var http_request = new XMLHttpRequest();
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // TODO Javascript function JSON.parse to parse JSON data
+                    //console.log(http_request.responseText);
+                    response = JSON.parse(http_request.responseText);
+                    //console.log(response);
+                    empresas = response;
+                    // response.forEach(element => {
+                    //     document.getElementById("table_body").innerHTML +=  show_row(element);
+                    // });
+                    // M.toast({html: response.message})
+                }
+            }
+
+            http_request.open("GET", data_file + '?filter=registoAprovado&value=1', true);
+            http_request.send();
+        }
+
+        function checkUser(email, pass, tipo) {
+            var data_file = "http://localhost/evr/autenticacao.php";
+            var http_request = new XMLHttpRequest();
+            console.log('tipooo', tipo);
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    response = JSON.parse(http_request.responseText);
+                    console.log(response);
+                    if (tipo === 0) {
+                        if (response.message === '') {
+                            get_user(email);
+                        }
+                        else {
+                            M.toast({ html: response.message });
+                        }
+                    }
+                    else {
+                        if (response.message === '') {
+                            console.log('emaaaail', email);
+                            get_enterprise(email);
+                        }
+                        else {
+                            M.toast({ html: response.message });
+                        }
+                    }
+                }
+            }
+
+            http_request.open("POST", data_file, true);
+            //console.log('{"email":"'+email+'", "password":"'+pass+'"}');
+            http_request.send('{"tipo":' + tipo + ',"email":"' + email + '", "password":"' + pass + '"}');
+        }
+
+        function get_user(email) {
+            var data_file = "http://localhost/evr/get_clientes.php";
+            var http_request = new XMLHttpRequest();
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    response = JSON.parse(http_request.responseText);
+                    if (email === 'admin') {
+                        localStorage.setItem('User-Logged', JSON.stringify(response[0]));
+                        location.href = "admin.html";
+                    }
+                    else{
+                        console.log(response[0]);
+                        localStorage.setItem('User-Logged', JSON.stringify(response[0]));
+                        location.href = "Userpage.html";
+                    }
+                }
+            }
+
+            http_request.open("GET", data_file + '?filter=email&value=' + email, true);
+            //console.log('{"email":"'+email+'", "password":"'+pass+'"}');
+            http_request.send();
+        }
+
+        function get_enterprise(email) {
+            var data_file = "http://localhost/evr/get_empresas.php";
+            var http_request = new XMLHttpRequest();
+
+            http_request.onreadystatechange = function () {
+
+                if (http_request.readyState == 4) {
+                    // Javascript function JSON.parse to parse JSON data
+                    response = JSON.parse(http_request.responseText);
+                    console.log(response[0]);
+                    localStorage.setItem('User-Logged', JSON.stringify(response[0]));
+                    location.href = "Enterprise.html";
+                }
+            }
+
+            http_request.open("GET", data_file + '?filter=email&value=' + email, true);
+            //console.log('{"email":"'+email+'", "password":"'+pass+'"}');
+            http_request.send();
+        }
+
+
+    </script>
+</body>
+
 </html>
