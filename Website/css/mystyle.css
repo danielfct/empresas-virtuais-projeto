@@ -1,0 +1,106 @@
+.resize-width {
+    width:95%;
+}
+
+.bodypage {
+    padding-top: 20px;
+    width:90%;
+    margin:auto;
+}
+
+.carousel .carousel-item {
+    width:700px !important;
+}
+.carousel .carousel-item > .item > img {
+  width:640px;
+  height:360px;
+}
+
+.colors {
+    background-color: #74A57F;
+}
+.carousel{
+  width:300px;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.font-color {
+    color: #445552;
+}
+
+.color-white {
+    color:white!important;
+    font-size:16px; 
+}
+
+.front-image {
+    width:90%;
+    background-image: url("site.jpg");
+    background-size: 100% 100%;
+    border-radius: 10px;
+    margin: auto;
+    height: 550px;
+}
+
+.text-bold {
+    margin-top: -20px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.repos {
+    margin-top: 10px;
+}
+
+.medium-image {
+    width:75%;
+    background-image: url("site1.jpg");
+    background-size: 100% 100%;
+    border-radius: 10px;
+    margin: auto;
+    height: 550px;
+}
+
+.font-icon {
+    font-size: 24px;
+    padding-left: 8px;
+}
+
+.resize-modal {
+    width:70%;
+    margin: auto;
+}
+
+.btn-modal {
+    height: 100px;
+    padding-top:20px;
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-pos {
+    margin-top: 40px;
+}
+
+@media (max-width:425px) {
+    .xs-resize {
+        height: 400px;
+    }
+
+    .xs-repos {
+        margin-top: -100px;
+    }
+
+    .xs-font-resize{
+        font-size: 1.5em;
+    }
+
+    .xs-image-resize {
+        background-size: 100% 50%;
+    }
+}

@@ -1,0 +1,60 @@
+.resize-width {
+    width:90%;
+}
+
+.grad1 {
+    /*height: 200px;*/
+    background-color: #cccccc;
+    background-image: linear-gradient(rgb(57, 114, 167), lightblue);
+}
+
+.background{
+    background-image: url("https://thevirtualorganization.files.wordpress.com/2014/07/human-65924_1280.jpg");
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+}
+
+.font-md {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bodypage {
+    padding-top: 20px;
+    width:90%;
+    margin:auto;
+}
+
+.resize-modal {
+    /*width:70%;
+    margin: auto;*/
+    height: 100%;
+}
+
+.resize-modal-1 {
+    /*width:70%;
+    margin: auto;*/
+    max-height: 50%!important;
+    top: 0%!important;
+}
+
+
+.circle {
+    width: 150px!important;
+    height: 150px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 75px;
+    border-radius: 75px;
+    background: grey;
+}
+
+.repos {
+    margin-top: 55px!important;
+    margin-left: 5px!important;
+}
+
+.gap{
+    position: static!important;
+    visibility: visible!important;
+}

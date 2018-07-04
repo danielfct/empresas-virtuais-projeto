@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize1.0.0.css" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <style>
+        .thumb {
+          height: 75px;
+          border: 1px solid #000;
+          margin: 10px 5px 0 0;
+        }
+      </style>
+</head>
+
+<body data-gr-c-s-loaded="true" class="loaded">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <header id="header" class="page-topbar">
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+                    <ul class="left">
+                        <li>
+                            <a id="logo-container" class="brand-logo color-white">VBE Festival</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="bodypage">
+        <div>
+            <h2 class="black-text center-align">Register</h2>
+        </div>
+        <div class="container resize-width">
+            <div class="section">
+                <div class="row">
+                    <div class="col offset-m3 m3">
+                        <button id="button1" class="btn blue darken-4 repos">SignUp as Enterprise</button>
+                    </div>
+                    <div class="col m3 offset-m1">
+                        <button id="button2" class="btn red repos">SignUp as Client</button>
+                    </div>
+                    <div class="col m2"></div>
+                </div>
+                <div class="row" id="main">
+                </div>
+            </div>
+        </div>
+        <div id="modal1" class="modal" style="display:none; top:5%; max-height: 90%!important;">
+            <div class="modal-content">
+                <div class="row">
+                    <i id='closeModal' class="small col m1 offset-m11 material-icons">clear</i>
+                </div>
+                <div class="card">
+                    <div class="modal-content resize-modal">
+                        <h5 class="center">LOGIN</h5>
+                        <p></p>
+                        <br>
+                        <input placeholder="Email" id="emailModal" type="email" class="validate">
+                        <p></p>
+                        <input placeholder="Password" id="passwordModal" type="password" class="validate">
+                        <div class="row row-pos">
+                            <p></p>
+                            <button class="btn blue" id="logIn">Log In</button>
+                            <span>Forgot password?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+<!-- ================================================
+         Footer
+         ================================================ -->
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            <span>
+                <a class="grey-text text-lighten-4" target="_blank">Empresas Virtuais</a>
+            </span>
+            <span class="right">
+                <a class="grey-text text-lighten-4">FCT @ UNL</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/auxs/jquery3.3.1.js"></script>
+<script src="js/auxs/materialize1.0.0.js"></script>
+<script src="js/scripts/sign.js"></script>
+<script src="js/scripts/templates.js"></script>
+
+
+</html>

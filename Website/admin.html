@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Painel de controlo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/materialize.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/custom-style.css" type="text/css">
+    <link rel="stylesheet" href="css/style-horizontal.css" type="text/css">
+    <link rel="stylesheet" href="css/perfect-scrollbar.css" type="text/css">
+    <link rel="stylesheet" href="css/chartist.min.css" type="text/css">
+    <link href="css/fullcalendar.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+</head>
+
+<body data-gr-c-s-loaded="true" class="loaded">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="cyan">
+                <div class="nav-wrapper">
+                    <ul class="left">
+                        <li>
+                            <h1 class="logo-wrapper">
+                                <a id="logo-container" class="brand-logo color-white">VBE Festival</a>
+                            </h1>
+                        </li>
+                    </ul>
+                    <div class="header-search-wrapper hide-on-med-and-down">
+                        <i class="material-icons active">search</i>
+                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Pesquisa">
+                    </div>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a id="logout" class="waves-effect waves-block waves-light">
+                                Log Out
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-block waves-light toogle-fullscreen">
+                                <i class="material-icons">settings_overscan</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
+                                <i class="material-icons">notifications</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- HORIZONTL NAV START-->
+            <nav id="horizontal-nav" class="white hide-on-med-and-down">
+                <div class="nav-wrapper">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li id="dashboard">
+                            <a class="cyan-text">
+                                <i class="material-icons">dashboard</i>
+                                <span>Painel de controlo</span>
+                            </a>
+                        </li>
+                        <li id='messages'>
+                            <a class="cyan-text">
+                                <i class="large material-icons">chat</i>
+                                <span>Mensagens</span>
+                            </a>
+                        </li>
+                        <li id='VOs'>
+                            <a class="cyan-text">
+                                <i class="large material-icons">dvr</i>
+                                <span>Pedidos de VOs</span>
+                            </a>
+                        </li>
+                        <li id='empresas'>
+                            <a class="cyan-text">
+                                <i class="large material-icons">queue</i>
+                                <span>Pedidos de empresas</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="main">
+        <div class="wrapper">
+            <section id="content">
+                <div class="container">
+                    <div id="profile-page-content" class="row">
+                        <!-- profile-page-wall -->
+                        <div id="profile-page-wall" class="col s12 m12" style="padding: 10px;">
+                            <!-- profile-page-wall-share -->
+                            <div id="card-stats">
+                                <div class="row">
+                                    <div class="col s12 m6 l3">
+                                        <div class="card">
+                                            <div class="card-content green white-text">
+                                                <p class="card-stats-title">
+                                                    <i class="large material-icons">group_add</i> Novos Clientes</p>
+                                                <h4 class="card-stats-number">5</h4>
+                                                <p class="card-stats-compare">+ 15%
+                                                    <span class="green-text text-lighten-5">ultimo mês</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m6 l3">
+                                        <div class="card">
+                                            <div class="card-content teal lighten-1 white-text">
+                                                <p class="card-stats-title">
+                                                    <i class="large material-icons">chat</i> Mensagens</p>
+                                                <h4 class="card-stats-number">10</h4>
+                                                <p class="card-stats-compare">+ 10%
+                                                    <span class="purple-text text-lighten-5">desde ontem</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m6 l3">
+                                        <div class="card">
+                                            <div class="card-content blue-grey white-text">
+                                                <p class="card-stats-title">
+                                                    <i class="large material-icons">dvr</i> Pedidos de VOs</p>
+                                                <h4 id="VOs_number" class="card-stats-number"></h4>
+                                                <p class="card-stats-compare">+ 10%
+                                                    <span class="blue-grey-text text-lighten-5">ultimo mês</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m6 l3">
+                                        <div class="card">
+                                            <div class="card-content blue lighten-2 white-text">
+                                                <span class="card-stats-title">
+                                                    <i class="large material-icons">add_alert</i> Pedidos de Empresas</span>
+                                                <h4 id="Empresas_number" class="card-stats-number"></h4>
+                                                <p class="card-stats-compare">+ 3%
+                                                    <span class="deep-purple-text text-lighten-5">ultimo mês</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="card-widgets">
+                                <div class="row">
+                                    <div class="col m12 l5" style="border: 2px solid #aba3a3; margin-top: 8px;margin-left: 60px;">
+                                        <div id="bordered-table">
+                                            <div class="row white-text" style="border-bottom: 2px solid #aba3a3; background-color: #aba3a3">
+                                                <div class="col s12 m12 l4 offset-l3">
+                                                    <h4 class="">Empresas</h4>
+                                                </div>
+                                            </div>
+                                            <p></p>
+                                            <div class="row">
+                                                <div class="col s12 m12 l12">
+                                                    <table class="bordered hoverable centered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-field="nome">Nome</th>
+                                                                <th data-field="service">Serviço</th>
+                                                                <th data-field="localidade">Localidade</th>
+                                                                <th data-field="telefone">Telefone</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="table_body">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m12 l5" style="border:2px solid #dc5858; margin-top: 8px;margin-left: 80px;">
+                                        <div id="bordered-table">
+                                            <div class="row white-text" style="border-bottom: 2px solid #dc5858; background-color: #dc5858">
+                                                <div class="col s12 m12 l4 offset-l4">
+                                                    <h4 class="">VOs</h4>
+                                                </div>
+                                            </div>
+                                            <p></p>
+                                            <div class="row">
+                                                <div class="col s12 m12 l12">
+                                                    <table class="bordered hoverable centered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-field="nome">Nome do Festival</th>
+                                                                <th data-field="service">Localização</th>
+                                                                <th data-field="email">Email</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="VO_table">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--card stats end-->
+                            <!--/ profile-page-wall-share -->
+                            <!-- profile-page-wall-posts -->
+                            <div id="profile-page-wall-posts" class="row">
+                                <div class="col s12">
+                                </div>
+                            </div>
+                            <!-- <div id="modal2" class="modal" style="max-height: 90%!important;">
+               <div class="modal-content">
+                   <div class="card">
+                       <div class="row">
+                           <div class="card-image waves-effect waves-block waves-light">
+                               <img class="activator" src="server/db/images/imagem2.jpg">
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="card-content">
+                               <div class="row">
+                                   <span class="card-title activator grey-text text-darken-4">Nome do cliente</span>
+                               </div>
+                               <p></p>
+                               <br>
+                               <div class="row">
+                                   <button id="button1" class="btn blue darken-2 col m2 offset-m3">Aceitar</button>
+                                   <button id="button2" class="btn red darken-2 col m2 offset-m2">Rejeitar</button>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="card-reveal">
+                           <span class="card-title grey-text text-darken-4">Nome do cliente
+                               <i class="material-icons right">close</i>
+                           </span>
+                           <p></p>
+                           <br>
+                           <div class="row">
+                               <ul>
+                                   <li>
+                                       <span class="black-text">Email:</span>
+                                   </li>
+                                   <p></p>
+                                   <li>
+                                       <span class="black-text">Telefone:</span>
+                                   </li>
+                                   <p></p>
+                                   <li>
+                                       <span class="black-text">Localização:</span>
+                                   </li>
+                                   <p></p>
+                                   <li>
+                                       <span class="black-text">Data:</span>
+                                   </li>
+                               </ul>
+                           </div>    
+                       </div>
+                   </div>
+               </div>
+               </div> -->
+                            <!--/ profile-page-wall-posts -->
+                        </div>
+                        <!--/ profile-page-wall -->
+                    </div>
+                    <!--end container-->
+                    <!-- END CONTENT -->
+                    <!-- START RIGHT SIDEBAR NAV-->
+                    <aside id="right-sidebar-nav">
+                        <ul id="chat-out" class="side-nav rightside-navigation right-aligned ps-container ps-active-y" style="width: 300px; right: -310px; height: 722px;">
+                            <li class="li-hover">
+                                <a data-activates="chat-out" class="chat-close-collapse right">
+                                    <i class="material-icons">close</i>
+                                </a>
+                                <div id="right-search" class="row">
+                                    <form class="col s12">
+                                        <div class="input-field">
+                                            <i class="material-icons prefix">search</i>
+                                            <input id="icon_prefix" type="text" class="validate">
+                                            <label for="icon_prefix">Search</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="li-hover">
+                                <ul class="chat-collapsible" data-collapsible="expandable">
+                                    <li class="active">
+                                        <div class="collapsible-header teal white-text active">
+                                            <i class="mdi-social-whatshot"></i>Recent Activity
+                                        </div>
+                                        <div class="collapsible-body recent-activity" style="display: block;">
+                                            <div class="recent-activity-list chat-out-list row">
+                                                <div class="col s3 recent-activity-list-icon">
+                                                    <i class="mdi-action-add-shopping-cart"></i>
+                                                </div>
+                                                <div class="col s9 recent-activity-list-text">
+                                                    <a href="http://demo.geekslabs.com/materialize/v2.2/layout03/user-profile-page.html#">just now</a>
+                                                    <p>Jim Doe Purchased new equipments for zonal office.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recent-activity-list chat-out-list row">
+                                                <div class="col s3 recent-activity-list-icon">
+                                                    <i class="mdi-device-airplanemode-on"></i>
+                                                </div>
+                                                <div class="col s9 recent-activity-list-text">
+                                                    <a href="http://demo.geekslabs.com/materialize/v2.2/layout03/user-profile-page.html#">Yesterday</a>
+                                                    <p>Your Next flight for USA will be on 15th August 2015.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recent-activity-list chat-out-list row">
+                                                <div class="col s3 recent-activity-list-icon">
+                                                    <i class="mdi-action-settings-voice"></i>
+                                                </div>
+                                                <div class="col s9 recent-activity-list-text">
+                                                    <a href="http://demo.geekslabs.com/materialize/v2.2/layout03/user-profile-page.html#">5 Days Ago</a>
+                                                    <p>Natalya Parker Send you a voice mail for next conference.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recent-activity-list chat-out-list row">
+                                                <div class="col s3 recent-activity-list-icon">
+                                                    <i class="mdi-action-store"></i>
+                                                </div>
+                                                <div class="col s9 recent-activity-list-text">
+                                                    <a href="http://demo.geekslabs.com/materialize/v2.2/layout03/user-profile-page.html#">Last Week</a>
+                                                    <p>Jessy Jay open a new store at S.G Road.</p>
+                                                </div>
+                                            </div>
+                                            <div class="recent-activity-list chat-out-list row">
+                                                <div class="col s3 recent-activity-list-icon">
+                                                    <i class="mdi-action-settings-voice"></i>
+                                                </div>
+                                                <div class="col s9 recent-activity-list-text">
+                                                    <a href="http://demo.geekslabs.com/materialize/v2.2/layout03/user-profile-page.html#">5 Days Ago</a>
+                                                    <p>Natalya Parker Send you a voice mail for next conference.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="active">
+                                        <div class="collapsible-header light-blue white-text active">
+                                            <i class="mdi-editor-attach-money"></i>Sales Repoart
+                                        </div>
+                                        <div class="collapsible-body sales-repoart" style="display: block;">
+                                            <div class="sales-repoart-list  chat-out-list row">
+                                                <div class="col s8">Target Salse</div>
+                                                <div class="col s4">
+                                                    <span id="sales-line-1">
+                                                        <canvas width="33" height="30" style="display: inline-block; width: 33px; height: 30px; vertical-align: top;"></canvas>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="sales-repoart-list chat-out-list row">
+                                                <div class="col s8">Payment Due</div>
+                                                <div class="col s4">
+                                                    <span id="sales-bar-1">
+                                                        <canvas width="32" height="25" style="display: inline-block; width: 32px; height: 25px; vertical-align: top;"></canvas>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="sales-repoart-list chat-out-list row">
+                                                <div class="col s8">Total Delivery</div>
+                                                <div class="col s4">
+                                                    <span id="sales-line-2">
+                                                        <canvas width="33" height="30" style="display: inline-block; width: 33px; height: 30px; vertical-align: top;"></canvas>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="sales-repoart-list chat-out-list row">
+                                                <div class="col s8">Total Progress</div>
+                                                <div class="col s4">
+                                                    <span id="sales-bar-2">
+                                                        <canvas width="32" height="25" style="display: inline-block; width: 32px; height: 25px; vertical-align: top;"></canvas>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header red white-text">
+                                            <i class="mdi-action-stars"></i>Favorite Associates
+                                        </div>
+                                        <div class="collapsible-body favorite-associates">
+                                            <div class="favorite-associate-list chat-out-list row">
+                                                <div class="col s4">
+                                                    <img src="avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                                </div>
+                                                <div class="col s8">
+                                                    <p>Eileen Sideways</p>
+                                                    <p class="place">Los Angeles, CA</p>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-associate-list chat-out-list row">
+                                                <div class="col s4">
+                                                    <img src="avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                                </div>
+                                                <div class="col s8">
+                                                    <p>Zaham Sindil</p>
+                                                    <p class="place">San Francisco, CA</p>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-associate-list chat-out-list row">
+                                                <div class="col s4">
+                                                    <img src="avatar.jpg" alt="" class="circle responsive-img offline-user valign profile-image">
+                                                </div>
+                                                <div class="col s8">
+                                                    <p>Renov Leongal</p>
+                                                    <p class="place">Cebu City, Philippines</p>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-associate-list chat-out-list row">
+                                                <div class="col s4">
+                                                    <img src="avatar.jpg" alt="" class="circle responsive-img online-user valign profile-image">
+                                                </div>
+                                                <div class="col s8">
+                                                    <p>Weno Carasbong</p>
+                                                    <p>Tokyo, Japan</p>
+                                                </div>
+                                            </div>
+                                            <div class="favorite-associate-list chat-out-list row">
+                                                <div class="col s4">
+                                                    <img src="avatar.jpg" alt="" class="circle responsive-img offline-user valign profile-image">
+                                                </div>
+                                                <div class="col s8">
+                                                    <p>Nusja Nawancali</p>
+                                                    <p class="place">Bangkok, Thailand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                                <div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 662px; right: 3px;">
+                                <div class="ps-scrollbar-y" style="top: 0px; height: 606px;"></div>
+                            </div>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+<!-- LEFT RIGHT SIDEBAR NAV-->
+<!-- END WRAPPER -->
+<!-- END MAIN -->
+<!-- ================================================
+         Footer
+         ================================================ -->
+<footer class="page-footer">
+    <div class="footer-copyright">
+        <div class="container">
+            <span>
+                <a class="grey-text text-lighten-4" target="_blank">Empresas Virtuais</a>
+            </span>
+            <span class="right">
+                <a class="grey-text text-lighten-4">FCT @ UNL</a>
+            </span>
+        </div>
+    </div>
+</footer>
+<!-- ================================================
+         Scripts
+         ================================================ -->
+<!-- <script type="text/javascript" src="js/auxs/jquery.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/auxs/materialize.js"></script>
+<script type="text/javascript" src="js/auxs/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="js/auxs/chartist.min.js"></script>
+<script type="text/javascript" src="js/auxs/plugins.js"></script>
+<script type="text/javascript" src="js/auxs/chart.min.js"></script>
+<!-- <script type="text/javascript" src="js/chart-script.js"></script> -->
+<script type="text/javascript" src="js/scripts/admin_page.js"></script>
+<script type="text/javascript" src="js/scripts/admin_templates.js"></script>
